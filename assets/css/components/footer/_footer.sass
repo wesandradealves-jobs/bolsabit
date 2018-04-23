@@ -1,0 +1,59 @@
+footer 
+    background-color: white
+    overflow: hidden
+    .site-logo
+        text-align: initial
+        > img  
+            max-height: 45px
+    .social 
+        > li  
+            &:hover 
+                color: rgba(0,0,0,.7)
+            color: $amarelo
+    > .footer 
+        > .container 
+            @extend .flex 
+            align-items: center
+            flex-flow: row 
+            justify-content: space-between
+            > div 
+                &:nth-child(1)
+                    > p  
+                        display: block 
+                        padding: 15px 0
+                    width: 385px
+                &:nth-child(2)
+                    flex: 1
+                &:last-child   
+                    width: 250px
+                flex: 0 0 auto
+                > p  
+                    font-size: em(14)
+            padding-top: 30px 
+            padding-bottom: 15px
+    > .copyright
+        > .container
+            border-top: 1px rgba(0,0,0,.2) solid
+            color: rgba(0,0,0,.2)
+            padding-top: 22px
+            padding-bottom: 22px
+            > p  
+                font-size: em(13)
+        
+@media only screen and (max-width: 1024px)
+    footer
+        > .copyright
+            text-align: center
+        > .footer
+            >.container
+                align-items: initial 
+                flex-flow: column
+                justify-content: initial
+                text-align: center
+                .site-logo
+                    text-align: inherit
+                > div  
+                    flex: inherit !important
+                    @for $i from 1 through 3
+                        &:nth-child(#{$i})
+                            width: 100%

@@ -1,0 +1,266 @@
+body, html
+    +animation(opacity,2000ms)
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    font-family: 'Roboto', sans-serif
+    min-height: 100%
+    position: relative
+    button,input,textarea,select 
+        &:focus 
+            outline: none 
+        border: 0 
+        font-family: inherit
+        margin: 0 0
+        overflow: hidden
+        resize: none
+    * 
+        &::after,&::before 
+            -webkit-box-sizing: inherit
+            -moz-box-sizing: inherit
+            box-sizing: inherit
+        font-weight: normal 
+        -webkit-box-sizing: inherit
+        -moz-box-sizing: inherit
+        box-sizing: inherit
+        line-height: initial 
+
+body
+    @extend .flex
+    flex-flow: column 
+    left: 0
+    min-height: 100%
+    position: absolute 
+    top: 0
+    width: 100%
+
+.wrap
+    @extend .flex
+    flex-flow: column
+    flex: 1
+    overflow: hidden
+    position: relative
+    > main 
+        flex: 1
+
+.btn
+    +border(999px)
+    display: inline-block
+    font-size: em(14)
+    min-width: 149px
+    max-width: 100%
+    padding-top: 20px
+    padding-bottom: 20px
+    text-transform: uppercase
+    &.-default
+        background-color: $amarelo 
+        color: white
+
+.forms 
+    > div 
+        @extend .flex
+        flex-flow: row 
+        margin: 0 -17px
+        > div  
+            flex: 1 
+            padding: 17px
+ 
+    select, 
+    textarea, 
+    input:not([type="submit"]) 
+        min-width: 100%
+
+    .btn 
+        +border(3px)
+        padding-top: 15px
+        padding-bottom: 15px
+
+select,
+textarea,
+input:not([type="submit"])
+    +border(3px)
+    background-color: white
+    color: rgba(0,0,0,.2) 
+    display: block
+    font-size: em(22)
+    min-width: 263px 
+    padding: 16px 24px
+    width: 100%
+
+textarea[placeholder] 
+    text-overflow: ellipsis
+    color: rgba(0,0,0,.2)
+    opacity: 1
+    font-weight: 300
+ 
+
+input[placeholder] 
+    text-overflow: ellipsis
+    color: rgba(0,0,0,.2)
+    opacity: 1 
+    font-weight: 300
+
+
+::-moz-placeholder 
+    text-overflow: ellipsis 
+    color: rgba(0,0,0,.2)
+    opacity: 1
+    font-weight: 300
+
+
+input::-webkit-input-placeholder 
+    color: rgba(0,0,0,.2)
+    opacity: 1
+    font-weight: 300
+
+
+textarea::-webkit-input-placeholder 
+    color: rgba(0,0,0,.2)
+    opacity: 1
+    font-weight: 300
+
+
+input:-ms-input-placeholder 
+    color: rgba(0,0,0,.2)
+    opacity: 1
+    font-weight: 300
+
+
+textarea:-ms-input-placeholder 
+    color: rgba(0,0,0,.2)
+    opacity: 1
+    font-weight: 300
+
+
+.flex  
+    display: -webkit-box
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex 
+    flex-wrap: wrap
+    -webkit-flex-wrap: wrap
+
+[class*="brandico-"]::before 
+    font-family: 'brandico', sans-serif
+
+.container
+    display: block
+    max-width: 1130px
+    margin: 0 auto
+    padding-left: 15px
+    padding-right: 15px
+
+
+.site-logo
+    display: block 
+    text-align: center
+    > img 
+        max-width: 100%
+
+section 
+    &:not(.webdoor)
+        opacity: 0  
+    &.-animate
+        opacity: 1
+    +transition(1000ms)
+    > .container
+        &.-fluid
+            @extend .flex 
+            &.-horizontal
+                flex-flow: column  
+            &.-vertical
+                > * 
+                    flex: 1
+                    padding-left: 15px
+                    padding-right: 15px
+
+                img 
+                    display: block 
+                    margin: 0 auto
+                    max-width: 100%
+                align-items: center
+                flex-flow: row
+            p 
+                line-height: 1.6em 
+            .title  
+                color: $amarelo
+                margin-bottom: 35px
+
+
+@for $i from 1 through 5
+    h#{$i}
+        font-weight: 800
+
+.title
+    font-size: em(64)
+
+h2 
+    @extend .title
+
+.subtitle
+    font-size: em(30)
+
+h3 
+    @extend .subtitle
+
+.page-title
+    color: $amarelo
+    display: block
+    font-size: em(48)
+    margin-bottom: 30px
+
+h4  
+    @extend .page-title
+
+p  
+    font-size: em(16)
+    line-height: 1.3em
+    > strong 
+        font-weight: bold
+
+@media only screen and (max-width: 1024px) 
+    section 
+        &:not(.webdoor)
+            opacity: 1 
+    .forms 
+        > div 
+            flex-flow: column 
+            > div 
+                flex: inherit
+        .btn 
+            width: 100%
+
+    .container
+        padding-left: 25px
+        padding-right: 25px
+@media only screen and (max-width: 737px) 
+    select,
+    textarea,
+    input:not([type="submit"])
+        padding-top: 10px
+        padding-bottom: 10px
+    .title,
+    h2 
+        font-size: em(32)
+
+    .subtitle,
+    h3  
+        font-size: em(22)
+@media only screen and (max-width: 490px) 
+    section
+        >.container
+            &.-fluid
+                &.-horizontal,
+                &.-vertical
+                    flex-flow: column
+                    margin-bottom: -60px
+                    text-align: center
+                    > * 
+                        margin-bottom: 60px
+@media all and (-ms-high-contrast:none)
+    *::-ms-backdrop, body 
+        display: block 
+    *::-ms-backdrop, .wrap
+        display: block 
+    body,.wrap
+        display: block

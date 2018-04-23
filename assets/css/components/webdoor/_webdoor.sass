@@ -1,0 +1,44 @@
+.webdoor
+    background-size: cover 
+    background-position: center
+    background-repeat: no-repeat
+    overflow: hidden
+    position: relative
+    &::after
+        background-color: $vinho
+        content: "" 
+        display: block
+        height: 100%
+        left: 0 
+        opacity: .85
+        position: absolute
+        top: 0
+        width: 100%
+    > .container
+        color: white
+        padding-top: calc(131px + 144px)
+        padding-bottom: 131px
+        position: relative
+        text-align: center
+        z-index: 2
+        > p  
+            display: block 
+            @extend .title
+            font-weight: 300
+            padding: 60px 0 0
+            > span  
+                color: $amarelo
+                font-weight: 700
+        > .subtitle
+            font-weight: 300
+        > * 
+            display: block
+@media only screen and (min-width: 1025px)
+    .webdoor 
+        > .container 
+            > .title 
+                @include animation(top-opacity,1000ms)
+            > .subtitle 
+                @include animation(opacity,1000ms)
+            > p 
+                @include animation(bottom-opacity,1000ms)

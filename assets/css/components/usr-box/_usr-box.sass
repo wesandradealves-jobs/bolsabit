@@ -1,0 +1,68 @@
+.usr-box
+    position: relative 
+    > .usr-dropdown
+        &.-active
+            display: block
+        &::before 
+            border-style: solid
+            border-width: 0 12px 15px 12px
+            border-color: transparent transparent #fafafa transparent
+            content: ""
+            display: block 
+            height: 0
+            position: absolute
+            right: 15px
+            top: -15px  
+            width: 0
+        +border(8px)
+        +shadow(0px,0px,20px,-10px,black)
+        background-color: #fafafa 
+        display: none 
+        right: 130px
+        position: absolute 
+        top: calc(100% + 15px)
+        width: 220px
+        z-index: 10
+        > div 
+            display: block 
+            padding: 15px
+            &:first-of-type 
+                border-bottom: 1px rgba(0,0,0,.2) solid
+                > p  
+                    color: rgba(0,0,0,.4)
+                    text-transform: lowercase
+        .navigation
+            > ul  
+                > li  
+                    i
+                        display: inline-block !important
+                        vertical-align: middle
+                        margin-right: 7px
+                    color: black
+                    display: block
+                    font-size: em(16)
+                    padding: 7px 
+                    text-align: left 
+        .usr-avatar
+            display: block
+            margin: 0 auto 7px
+    > * 
+        display: inline-block
+        vertical-align: middle 
+    .usr-avatar
+        +border(999px)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+        cursor: pointer
+        margin-right: 15px
+        height: 60px
+        width: 60px
+    > p  
+        font-size: em(20)
+@media only screen and (max-width: 736px) 
+    .usr-box
+        > .usr-dropdown
+            right: 20px
+        > p  
+            display: none

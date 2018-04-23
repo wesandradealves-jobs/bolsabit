@@ -1,0 +1,30 @@
+.pg-login
+    align-items: center 
+    background-color: lighten($vinho,68%)
+    display: flex 
+    justify-content: center
+    min-height: 100vh
+    position: relative
+    width: 100% 
+    > .wrap 
+        align-items: center
+        @extend .flex
+        flex-flow: column 
+        justify-content: center
+        padding: 30px
+        width: 100%
+@media only screen and (max-height: 414px)
+    .pg-login
+        > .wrap     
+            zoom: .55
+            > .form-box
+                > form 
+                    > p  
+                        font-size: em(22)
+@media all and (-ms-high-contrast:none)
+    *::-ms-backdrop, .pg-login 
+        display: block 
+    *::-ms-backdrop, .pg-login>.wrap
+        display: block 
+        .pg-login ,.pg-login>.wrap
+        display: block

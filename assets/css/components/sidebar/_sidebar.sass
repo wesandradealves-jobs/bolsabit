@@ -1,0 +1,13 @@
+.sidebar
+    background-color: white
+    flex: 0 0 auto
+    width: 260px
+@media only screen and (max-width: 1024px) 
+    .sidebar 
+        &:first-of-type
+            &+.content
+                order: 1 
+            order: 2
+        &:last-of-type 
+            order: 3
+        width: 100%

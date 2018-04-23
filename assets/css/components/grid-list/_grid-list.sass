@@ -1,0 +1,39 @@
+.grid-list
+    margin: -48px
+    max-height: 410px
+    overflow: hidden
+    overflow-y: auto
+    > li  
+        &:not(:last-child)
+            border-bottom: 1px rgba(0,0,0,.1) solid
+        align-items: center 
+        display: flex 
+        flex-flow: row 
+        justify-content: space-between
+        padding: 22px 44px
+        > p  
+            color: rgba(0,0,0,.3)
+            font-weight: 300
+            font-size: 1.6rem
+            &:last-of-type
+                text-align: right
+            .fa-copy
+                color: $amarelo
+                display: block 
+                float: right 
+                padding-left: 10px
+                &+u 
+                    text-decoration: none
+            i 
+                color: $amarelo
+            a  
+                > i  
+                    color: inherit
+            > span  
+                color: black 
+                display: block 
+                font-size: 2.6rem
+                margin-bottom: 6px
+                > strong 
+                    font-weight: 800
+                        

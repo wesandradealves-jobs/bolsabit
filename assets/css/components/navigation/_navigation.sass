@@ -1,0 +1,116 @@
+.navigation
+    > ul  
+        text-align: center
+        > li  
+            color: white
+            display: inline-block
+            font-size: em(14)
+            text-transform: uppercase
+            vertical-align: middle
+    &.-main
+        > ul  
+            > li  
+                &:not(:first-child)
+                    padding-left: 10px
+                &:not(:last-child):not(:nth-last-child(2))
+                    padding-right: 10px
+                &:last-child   
+                    display: none
+    &.-login
+        > ul  
+            > li  
+                &:hover,
+                &.-active
+                    color: $amarelo
+                &:not(:first-child)
+                    margin-left: 6px
+                &:not(:last-child)
+                    margin-right: 6px
+
+    &.-footer 
+        > ul  
+            margin-bottom: -24px
+            > li  
+                &:hover 
+                    color: $amarelo
+                color: black
+                display: inline-block
+                vertical-align: middle
+                width: 50%
+                margin-right: -4px
+                padding-bottom: 24px
+
+    &.-usr
+        > ul  
+            > li  
+                color: black
+                &:hover 
+                    color: inherit 
+
+    &.-dashboard
+        > ul  
+            display: block
+            text-align: center 
+            width: 100%
+            > li  
+                &:not(:last-child)
+                    border-bottom: 1px rgba(0,0,0,.1) solid
+                &:hover,
+                &.-active
+                    color: white
+                color: rgba(255,255,255,.1)
+                display: block 
+                font-size: em(32)
+                line-height: 75px
+
+    &.-mobile
+        +height(.2s)
+        background-color: $amarelo
+        max-height: 0 
+        overflow: hidden
+        &.-active
+            max-height: 800px
+        > ul  
+            > li  
+                display: block
+                padding: 12px
+                text-align: left
+                &:not(:last-child)
+                    border-bottom: 1px rgba(0,0,0,.1) solid
+
+@media only screen and (min-width: 1025px)
+    .navigation
+        &.-login
+            @include animation(right-to-left,1000ms)
+        &.-main 
+            > ul  
+                > li   
+                    @for $i from 1 through 10 
+                        &:nth-child(#{$i})
+                            @include animation(top-opacity,(30s*$i)/40)
+@media only screen and (max-width: 1024px) 
+    .navigation
+        &.-dashboard    
+            > ul  
+                > li  
+                    &:not(:last-child)
+                        border-bottom: 0 
+                        border-right: 1px rgba(0,0,0,.1) solid 
+                    display: inline-block
+                    vertical-align: middle
+                    width: 75px
+        &.-footer
+            > ul  
+                margin-bottom: 0
+                margin-top: 24px
+                > li  
+                    display: block
+                    margin-right: 0 
+                    width: 100%
+        &.-main
+            > ul  
+                > li  
+                    &:not(:last-child)
+                        display: none 
+                    &:last-child 
+                        display: block

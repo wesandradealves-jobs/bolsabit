@@ -1,0 +1,52 @@
+header 
+    display: block 
+    left: 0
+    position: absolute
+    top: 0
+    z-index: 50
+    width: 100%
+    > .header 
+        > .container 
+            > h1 
+                @include animation(left-to-right,1000ms)
+.header 
+    background-color: rgba(0,0,0,.3)
+    display: block 
+    left: 0 
+    top: 0
+    &.-sticky
+        background-color: rgba(0,0,0,.7)
+        position: fixed 
+        +transition(500ms)
+        top: -200px
+        z-index: 100
+        &.-stuck
+            top: 0
+    .site-logo
+        > img  
+            max-height: 65px
+    > .container  
+        align-items: center
+        @extend .flex
+        flex-flow: row
+        justify-content: space-between
+        padding-top: 10px
+        padding-bottom: 10px
+    width: 100%
+    z-index: 50
+
+@media only screen and (max-width: 1024px) 
+    .header 
+        > .container
+            > *  
+                &:last-child
+                    display: none
+@media only screen and (max-width: 737px) 
+    header
+        margin-bottom: -145px
+        position: relative
+    .header 
+        > .container
+            > *  
+                &:first-child
+                    padding-right: 25px

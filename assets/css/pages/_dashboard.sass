@@ -1,0 +1,61 @@
+.pg-dashboard
+    .-sticky
+        display: none !important
+    > .wrap 
+        > .page-content
+            > .content
+                background-color: lighten($vinho,68%)
+                padding-top: 30px
+                padding-bottom: 100px
+                padding-left: 30px
+                padding-right: 30px
+            > .sidebar
+                background-color: $amarelo
+                cursor: nesw-resize 
+                // overflow: hidden
+                padding: 15px 0
+                width: 90px
+                a  
+                    cursor: pointer
+                    position: relative
+                    width: 100%
+                    &::after 
+                        content: attr(data-title)
+                        display: none
+                        position: absolute
+                        top: 80%
+                        left: 4.5%
+                        color: white
+                        font-size: 1rem
+                        background-color: rgba(0,0,0,.8)
+                        padding: 5px
+                        border-radius: 6px
+                        width: 90%
+                    &:hover::after
+                        display: block
+@media only screen and (max-width: 1024px) 
+    .pg-dashboard
+        .header
+            >.container
+                > .navigation
+                    display: block !important
+                    > ul  
+                        > li
+                            &:last-child 
+                                display: block
+        > .wrap 
+            > .page-content
+                flex-flow: column
+                > .content  
+                    order: 2
+                > .sidebar
+                    order: 1 !important
+                    padding: 0
+                    flex: 0 0 auto
+                    width: 100%
+@media only screen and (max-width: 767px) 
+    .pg-dashboard
+        > .wrap 
+            > .page-content
+                > .content
+                    padding-bottom: 30px
